@@ -1,0 +1,16 @@
+img{
+    display: inline-block;
+    width: 20%;
+    border: 1px solid gold;
+    margin-left:5%;
+}
+#sec2{
+    position: absolute;
+    right: 0;
+    top:2%;
+}
+ul li {
+    color:lightslategray;
+    border-bottom: 3px solid gold;
+    font-size: larger;
+}
