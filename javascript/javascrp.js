@@ -10,6 +10,8 @@ let thridIndex;
 
 let arryName=[];
 
+let lastIndex=[0];
+
 
 function product(name,sourc)
 {
@@ -43,12 +45,30 @@ new product('water-can','../image/water-can.jpg');
 new product('wine-glass','../image/wine-glass.jpg');
 new product('pen','../image/pen.jpg');
 
+function checkLastInedx()
+{
+if (lastIndex.includes(firstIndex)){
+    firstIndex=genratRandomIndex();
+
+}
+if(lastIndex.includes(secIndex))
+{secIndex=genratRandomIndex();}
+
+if(lastIndex.includes(thridIndex))
+{thridIndex=genratRandomIndex();}
+
+}
+
 function renderThreeImage()
 {firstIndex=genratRandomIndex();
  secIndex=genratRandomIndex();
  thridIndex=genratRandomIndex();
-while((firstIndex===secIndex)|| ((firstIndex===thridIndex)||(secIndex===thridIndex))) 
-{
+ lastIndex[0]=firstIndex;
+ lastIndex[1]=secIndex;
+ lastIndex[2]=thridIndex;
+ checkLastInedx();
+ while((firstIndex===secIndex)|| ((firstIndex===thridIndex)||(secIndex===thridIndex))) 
+{  checkLastInedx();
     secIndex=genratRandomIndex();
     thridIndex=genratRandomIndex();
     }
@@ -59,8 +79,9 @@ product.allImage[secIndex].show++;
 thridProduct.src=product.allImage[thridIndex].sourc;
 product.allImage[thridIndex].show++;
 }//end render function
-
 renderThreeImage();
+
+
 function genratRandomIndex()
 {
   return  Math.floor(Math.random()* product.allImage.length);
