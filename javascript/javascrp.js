@@ -14,7 +14,8 @@ function product(name,sourc)
 {
 this.name =name ;
 this.sourc=sourc;
-this.time=0;
+this.votes=0;
+this.show=0;
 product.allImage.push(this)
 }
 product.allImage=[];
@@ -50,8 +51,11 @@ while((firstIndex===secIndex)|| ((firstIndex===thridIndex)||(secIndex===thridInd
     thridIndex=genratRandomIndex();
     }
 firstProduct.src=product.allImage[firstIndex].sourc;
+product.allImage[firstIndex].show++;
 secoundProduct.src=product.allImage[secIndex].sourc;
+product.allImage[secIndex].show++;
 thridProduct.src=product.allImage[thridIndex].sourc;
+product.allImage[thridIndex].show++;
 }//end render function
 
 renderThreeImage();
@@ -68,22 +72,29 @@ function handleClicking(event){
 if(maxAttempts >=count){
     if(event.target.id=='first-image')
     {
-        product.allImage[firstIndex].time++;
+        product.allImage[firstIndex].votes++;
 
     }else if(event.target.id==='secound-image'){
-        product.allImage[firstIndex].time++;
+        product.allImage[firstIndex].votes++;
 
     }else if (event.target.id==='thrid-image'){
-        product.allImage[thridIndex].time++;
+        product.allImage[thridIndex].votes++;
 
     }console.log(product.allImage);
     renderThreeImage();
 }else
     {
        sectionImge.removeEventListener('click',handleClicking)
-    renderList();
+  //  renderList();
     }
 
+}
+let btn=document.getElementById('result');
+btn.addEventListener('click',showlist);
+function showlist()
+{
+renderList();
+btn.removeEventListener('click',showlist);
 }
 
 function renderList()
@@ -94,7 +105,7 @@ for (let i =0;i<product.allImage.length;i++)
 {
 li=document.createElement('li');
 ul.appendChild(li);
-li.textContent=`${product.allImage[i].name} its has ${product.allImage[i].time} Clicked`;
+li.textContent=`${product.allImage[i].name} had ${product.allImage[i].votes} votes was seen ${product.allImage[i].show}`;
 
 }
 
