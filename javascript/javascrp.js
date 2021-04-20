@@ -10,7 +10,7 @@ let thridIndex;
 
 let arryName=[];
 
-let lastIndex=[0];
+let lastIndex=[];
 
 
 function product(name,sourc)
@@ -45,33 +45,33 @@ new product('water-can','../image/water-can.jpg');
 new product('wine-glass','../image/wine-glass.jpg');
 new product('pen','../image/pen.jpg');
 
-function checkLastInedx()
-{
-if (lastIndex.includes(firstIndex)){
-    firstIndex=genratRandomIndex();
+// function checkLastInedx()
+// {
+// if (lastIndex.includes(firstIndex)){
+//     firstIndex=genratRandomIndex();
 
-}
-if(lastIndex.includes(secIndex))
-{secIndex=genratRandomIndex();}
+// }
+// if(lastIndex.includes(secIndex))
+// {secIndex=genratRandomIndex();}
 
-if(lastIndex.includes(thridIndex))
-{thridIndex=genratRandomIndex();}
+// if(lastIndex.includes(thridIndex))
+// {thridIndex=genratRandomIndex();}
 
-}
+// }
 
 function renderThreeImage()
 {firstIndex=genratRandomIndex();
  secIndex=genratRandomIndex();
  thridIndex=genratRandomIndex();
- lastIndex[0]=firstIndex;
- lastIndex[1]=secIndex;
- lastIndex[2]=thridIndex;
- checkLastInedx();
- while((firstIndex===secIndex)|| ((firstIndex===thridIndex)||(secIndex===thridIndex))) 
-{  checkLastInedx();
+ 
+ 
+ while(firstIndex===secIndex|| firstIndex===thridIndex||secIndex===thridIndex || lastIndex.includes(firstIndex) || lastIndex.includes(secIndex) || lastIndex.includes(thridIndex)) 
+{  
+    firstIndex=genratRandomIndex();
     secIndex=genratRandomIndex();
     thridIndex=genratRandomIndex();
     }
+    lastIndex[firstIndex,secIndex,thridIndex];
 firstProduct.src=product.allImage[firstIndex].sourc;
 product.allImage[firstIndex].show++;
 secoundProduct.src=product.allImage[secIndex].sourc;
